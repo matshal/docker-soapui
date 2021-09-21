@@ -1,11 +1,12 @@
-FROM openjdk:11
-MAINTAINER Luka Stosic INFOdation <lstosic@infodation.nl>
+FROM openjdk:8
+MAINTAINER Mats Hallingström <mats.hallingstrom@gmail.com>
 
 # Install curl
 # RUN apk add --update curl && rm -rf /var/cache/apk/*
 
 # SOAP UI Version to download
-ENV SOAPUI_VERSION 5.6.0
+ENV SOAPUI_VERSION 5.5.0
+
 
 # Download and unarchive SoapUI
 RUN mkdir -p /opt &&\
@@ -17,5 +18,6 @@ RUN mkdir -p /opt &&\
 ENV PATH ${PATH}:/opt/SoapUI/bin
 
 WORKDIR /opt/SoapUI/bin
+
 
 ENTRYPOINT ["testrunner.sh"]
